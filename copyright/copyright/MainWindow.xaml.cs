@@ -35,15 +35,23 @@ namespace copyright
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Configuration m_Config = new Configuration();
+        private String m_ConfigFileName = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "config.xml");
         public MainWindow()
         {
             InitializeComponent();
-            LoadConfig();
+            if (!File.Exists(m_ConfigFileName))
+            {
+                settingsWindow settingWindow = new settingsWindow();
+                settingWindow.ShowDialog();
+            }
+            else { 
+                LoadConfig(); 
+            }
+
         }
 
         //Attributes
-        private Configuration m_Config = new Configuration();
-        private String m_ConfigFileName = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "config.xml");
 
         string fileName             = "";
         string fileName_WithoutPatch  = "";

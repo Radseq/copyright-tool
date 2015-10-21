@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:copyright"
         mc:Ignorable="d"
-        Title="settings" Height="435.919" Width="364.117">
+        Title="settings" Height="435.919" Width="364.117" Closing="Window_Closing">
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="119" Margin="10,24,0,0" VerticalAlignment="Top" Width="338">
             <Grid>
@@ -22,9 +22,9 @@
         <Label x:Name="labelURL_Copy2" Content="Project Settings:" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="162" Margin="10,189,0,0" VerticalAlignment="Top" Width="338">
             <Grid>
-                <Label x:Name="labelFirstLine" Content="First Line char:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
+                <Label x:Name="labelFirstLine" Content="First Line comment:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
                 <TextBox x:Name="firstLineTB" HorizontalAlignment="Left" Height="23" Margin="120,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" IsEnabled="False"/>
-                <Label x:Name="labelLastLine" Content="Second Line char:" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="labelLastLine" Content="Last Line comment:" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="lastLineTB" HorizontalAlignment="Left" Height="23" Margin="120,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" IsEnabled="False"/>
                 <Label x:Name="labelChar" Content="Middle Char:" HorizontalAlignment="Left" Margin="0,127,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="CharTB" HorizontalAlignment="Left" Height="23" Margin="288,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" IsEnabled="False"/>

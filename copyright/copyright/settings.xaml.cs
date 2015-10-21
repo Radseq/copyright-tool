@@ -21,15 +21,17 @@ namespace copyright
     /// </summary>
     public partial class settingsWindow : Window
     {
+        private Configuration m_Config = new Configuration();
+        private String m_ConfigFileName = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "config.xml");
+
         public settingsWindow()
         {
             InitializeComponent();
-            LoadConfig();
+            if (File.Exists(m_ConfigFileName))
+            {
+                LoadConfig();
+            }
         }
-
-        //Attributes
-        private Configuration m_Config = new Configuration();
-        private String m_ConfigFileName = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath), "config.xml");
 
         #region Config
         //----------------------------------------------------------------
@@ -200,26 +202,69 @@ namespace copyright
 
         #endregion check box
 
-        private void exit()
+        private void save()
         {
             //Save and LoadConfig from main window
             SaveConfig();
             MainWindow mw = new MainWindow();
             mw.LoadConfig();
-            this.Close();
+            MessageBoxResult result = MessageBox.Show("Saved", "Exit", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (result == MessageBoxResult.OK)
+            {
+                Close();
+            }
+        }
+
+        private bool exit()
+        {
+            if (cBoxFirstLine.IsChecked == true || cBoxLastLine.IsChecked == true || cBoxContent.IsChecked == true)
+            {
+                if (firstLineTB.Text == "" || lastLineTB.Text == "" || CharTB.Text == "")
+                {
+                    var response = MessageBox.Show("you mast set first line comment eg. /* last line comment eg. */ and middle char eg.* like in cpp, do you want leave?", "Exiting...",
+                                   MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                    if (response == MessageBoxResult.No)
+                    {
+                        return false;
+                    }
+                    else
+                    { 
+                        return false; 
+                    }
+                }
+                return false;
+            }
+            return true;
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            exit();
+            if(exit() ==  true)
+            { 
+                Close();
+            }
+            
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Saved", "Exit", MessageBoxButton.OK, MessageBoxImage.Information);
-            if (result == MessageBoxResult.OK)
+            save();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (exit() == false)
             {
-                exit();
+                var response = MessageBox.Show("You not set up the program, it will cause its malfunction", "Exiting...",
+                                   MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+                if (response == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    Application.Current.Shutdown();
+                }
             }
         }
     }
