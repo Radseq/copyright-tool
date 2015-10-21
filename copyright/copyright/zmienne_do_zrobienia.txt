@@ -1,0 +1,5 @@
+zmiennw :
+${time}      //czas teraz
+${file_base} //pliki bez rozszezenia
+${file_loc}  //lokalizacja pliku
+${file_patch}//to samo co up?

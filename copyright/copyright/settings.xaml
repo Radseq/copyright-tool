@@ -1,0 +1,40 @@
+﻿<Window x:Class="copyright.settingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:copyright"
+        mc:Ignorable="d"
+        Title="settings" Height="435.919" Width="364.117">
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="119" Margin="10,24,0,0" VerticalAlignment="Top" Width="338">
+            <Grid>
+                <Label x:Name="labelAutor" Content="Autor:" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="autorTB" HorizontalAlignment="Left" Height="23" Margin="216,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="rokLabel" Content="Year:" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="rokTB" HorizontalAlignment="Left" Height="23" Margin="216,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="labelNazwaProj" Content="Project Nane:" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="nazwaProjTB" HorizontalAlignment="Left" Height="23" Margin="216,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="labelURL" Content="URL:" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="urlTB" HorizontalAlignment="Left" Height="23" Margin="128,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
+            </Grid>
+        </Border>
+        <Label x:Name="labelURL_Copy2" Content="Project Settings:" HorizontalAlignment="Left" Margin="10,-2,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="162" Margin="10,189,0,0" VerticalAlignment="Top" Width="338">
+            <Grid>
+                <Label x:Name="labelFirstLine" Content="First Line char:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,71,0,0"/>
+                <TextBox x:Name="firstLineTB" HorizontalAlignment="Left" Height="23" Margin="120,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" IsEnabled="False"/>
+                <Label x:Name="labelLastLine" Content="Second Line char:" HorizontalAlignment="Left" Margin="0,99,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="lastLineTB" HorizontalAlignment="Left" Height="23" Margin="120,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" IsEnabled="False"/>
+                <Label x:Name="labelChar" Content="Middle Char:" HorizontalAlignment="Left" Margin="0,127,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="CharTB" HorizontalAlignment="Left" Height="23" Margin="288,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" IsEnabled="False"/>
+                <CheckBox x:Name="cBoxContent" Content="Char Middle" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Checked="cBoxContent_Checked" Unchecked="cBoxContent_Unchecked"/>
+                <CheckBox x:Name="cBoxFirstLine" Content="First Line" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="cBoxFirstLine_Checked" Unchecked="cBoxFirstLine_Unchecked"/>
+                <CheckBox x:Name="cBoxLastLine" Content="Last Line" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Checked="cBoxLastLine_Checked" Unchecked="cBoxLastLine_Unchecked"/>
+            </Grid>
+        </Border>
+        <Label x:Name="labelURL_Copy3" Content="Copyright Settings:" HorizontalAlignment="Left" Margin="10,163,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="75" Click="saveButton_Click"/>
+        <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="271,375,0,0" VerticalAlignment="Top" Width="75" Click="exitButton_Click"/>
+    </Grid>
+</Window>
